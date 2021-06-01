@@ -23,5 +23,14 @@ public class Main {
         binaryTree.idxOrderList();
         System.out.println("******");
         binaryTree.postOrderList();
+        System.out.println("******");
+        System.out.println(binaryTree.preOrderSearch(5));
+
+        System.out.println(binaryTree.infixOrderSearch(5));
+
+        System.out.println(binaryTree.postOrderSearch(5));
+        System.out.println("******");
+        binaryTree.deleteNode(2);
+        binaryTree.preOrderList();
     }
 }
