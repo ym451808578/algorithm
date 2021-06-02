@@ -12,7 +12,19 @@ public class Main {
         PersonNode personNode4=new PersonNode(4,"诸葛亮");
         PersonNode personNode5=new PersonNode(5,"赵云");
         PersonNode personNode6=new PersonNode(6,"黄忠");
-        PersonNode personNode7=new PersonNode(7,"姜维");
-
+        personNode1.setLeft(personNode2);
+        personNode1.setRight(personNode3);
+        personNode2.setLeft(personNode4);
+        personNode2.setRight(personNode5);
+        personNode3.setLeft(personNode6);
+        ThreadedBinaryTree binaryTree=new ThreadedBinaryTree(personNode1);
+        binaryTree.infixThreaded();
+//        System.out.println(personNode4.getRight());
+//        System.out.println(personNode5.getLeft());
+//        System.out.println(personNode5.getRight());
+//        System.out.println(personNode6.getLeft());
+//        System.out.println(personNode6.getRight());
+//        System.out.println(personNode3.getLeft());
+        binaryTree.infixOrderList();
     }
 }
