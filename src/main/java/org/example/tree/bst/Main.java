@@ -13,21 +13,27 @@ public class Main {
 //        for (int i = 0; i < arr.length; i++) {
 //            arr[i] = new Random().nextInt(100);
 //        }
-        int[] arr = {65, 46, 50, 51, 1, 96, 76, 85};
+        //int[] arr = {65, 46, 50, 51, 1, 96, 76, 85};
+        //int[] arr = { 4, 3, 6, 5, 7, 8 };
+        //int[] arr = { 10, 12, 8, 9, 7, 6 };
+        int[] arr = { 10, 11, 7, 6, 8, 9 };
         System.out.println(Arrays.toString(arr));
         BinarySortTree binarySortTree = new BinarySortTree(arr);
         Node root = binarySortTree.createTree(arr);
         binarySortTree.infixOrder(root);
         System.out.println("**************");
-        System.out.println(root);
-        Node node = binarySortTree.search(root, arr[2]);
-        System.out.println(node);
-        Node parent = binarySortTree.searchParent(root, arr[2]);
-        System.out.println(parent);
-        System.out.println("************");
-//        binarySortTree.deleteNode(root,85);
+//        System.out.println(root);
+//        Node node = binarySortTree.search(root, arr[2]);
+//        System.out.println(node);
+//        Node parent = binarySortTree.searchParent(root, arr[2]);
+//        System.out.println(parent);
+//        System.out.println("************");
+////        binarySortTree.deleteNode(root,85);
+////        binarySortTree.deleteNode(root,76);
 //        binarySortTree.deleteNode(root,76);
-        binarySortTree.deleteNode(root,76);
-        binarySortTree.infixOrder(root);
+//        binarySortTree.infixOrder(root);
+        System.out.println(root.height());
+        System.out.println(root.leftHeight());
+        System.out.println(root.rightHeight());
     }
 }

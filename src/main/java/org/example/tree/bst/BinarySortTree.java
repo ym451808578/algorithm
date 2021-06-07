@@ -21,6 +21,21 @@ public class BinarySortTree {
         for (int i = 1; i < arr.length; i++) {
             createTree(root, new Node(arr[i]));
         }
+        System.out.println(root.height());
+        System.out.println(root.leftHeight());
+        System.out.println(root.rightHeight());
+        //当右子树的高度-左子树的高度>1时，左旋
+        if (root.rightHeight() - root.leftHeight() > 1) {
+            if (root.getRight() != null && root.getRight().leftHeight() > root.getRight().rightHeight()) {
+                rightRotate(root.getRight());
+            }
+            leftRotate(root);
+        } else if (root.leftHeight() - root.rightHeight() > 1) {
+            if (root.getLeft() != null & root.getLeft().rightHeight() > root.getLeft().leftHeight()) {
+                leftRotate(root.getLeft());
+            }
+            rightRotate(root);
+        }
         return root;
     }
 
@@ -178,5 +193,45 @@ public class BinarySortTree {
         }
         deleteNode(node, temp.getValue());
         return temp.getValue();
+    }
+
+    /**
+     * 左旋转：
+     * 1。 以当前根节点的值，创建一个新的节点；
+     * 2。 将当前根节点的左子树，设置为新节点的左子树
+     * 3。 将当前根节点的右子树的左子树，设置为新节点的右子树
+     * 4。 把当前根结点的值，替换为其右子节点的值
+     * 5。 把当前根节点的右子树的右子树，设置为当前根结点的右子树
+     * 6。 把新的节点，设置为当前根节点的左子树
+     *
+     * @param root
+     */
+    private void leftRotate(Node root) {
+        Node temp = new Node(root.getValue());
+        temp.setLeft(root.getLeft());
+        temp.setRight(root.getRight().getLeft());
+        root.setValue(root.getRight().getValue());
+        root.setRight(root.getRight().getRight());
+        root.setLeft(temp);
+    }
+
+    /**
+     * 右旋：
+     * 1。 以当前根节点的值，创建一个新的节点；
+     * 2。 将当前根节点的右子树，设置为新节点的右子树
+     * 3。 将当前根节点的左子树的右子树，设置为新节点的左子树
+     * 4。 把当前根结点的值，替换为其左子节点的值
+     * 5。 把当前根节点的左子树的左子树，设置为当前根结点的左子树
+     * 6。 把新的节点，设置为当前根节点的右子树
+     *
+     * @param root
+     */
+    private void rightRotate(Node root) {
+        Node temp = new Node(root.getValue());
+        temp.setRight(root.getRight());
+        temp.setLeft(root.getLeft().getRight());
+        root.setValue(root.getLeft().getValue());
+        root.setLeft(root.getLeft().getLeft());
+        root.setRight(temp);
     }
 }
