@@ -13,7 +13,9 @@ public class Main {
         System.out.println(binarySearch.search(0, arr.length - 1, 1000));
         InsertValueSearch insertValueSearch = new InsertValueSearch(arr);
         System.out.println(insertValueSearch.search(0, arr.length - 1, 1000));
-        FibSearch fibSearch=new FibSearch(arr);
+        FibSearch fibSearch = new FibSearch(arr);
         System.out.println(fibSearch.search(8));
+        BinarySearchWithoutRecursion binarySearchWithoutRecursion = new BinarySearchWithoutRecursion(arr);
+        System.out.println(binarySearchWithoutRecursion.search(8));
     }
 }
