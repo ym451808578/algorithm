@@ -43,7 +43,7 @@ public class Dijkstra {
         flag[startIndex] = true;
 
 
-        //寻找最小路径的节点，作为下一个起始节点
+        //寻找最小路径的节点，标记为true
         int minIndex = 0;
         for (int i = 0; i < matrix.length; i++) {
             int min = Integer.MAX_VALUE;
