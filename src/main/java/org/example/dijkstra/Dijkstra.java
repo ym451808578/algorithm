@@ -1,8 +1,5 @@
 package org.example.dijkstra;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
 import java.util.Arrays;
 
 /**
@@ -66,12 +63,4 @@ public class Dijkstra {
         }
         System.out.println(Arrays.toString(dist));
     }
-}
-
-@Data
-@AllArgsConstructor
-class Edge {
-    private char start;
-    private char end;
-    private int weight;
 }
